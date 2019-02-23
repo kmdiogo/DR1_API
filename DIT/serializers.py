@@ -8,11 +8,10 @@ class characters_serializer(serializers.ModelSerializer):
         model = models.characters
         fields = '__all__'
 
-
 class dm_session_serializer(serializers.ModelSerializer):
     class Meta:
         model = models.dm_session
-
+        fields = '__all__'
 
 class creatures_serializer(serializers.ModelSerializer):
     class Meta:
