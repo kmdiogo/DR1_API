@@ -28,6 +28,13 @@ class creatures(models.Model):
     creature_armor_class = models.IntegerField()
     creature_initiative = models.IntegerField(null=True)
 
+#==============#
+#      YEET    #
+#      E       #
+#      E       #
+#      T       #
+#==============#
+
 
 
 
