@@ -11,6 +11,8 @@ class extended_users(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_pc = models.BooleanField()
     is_dm = models.BooleanField()
+    def __str__(self):
+        return "extended_users"
 
 class characters(models.Model):
     users_id = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -19,9 +21,14 @@ class characters(models.Model):
     character_level = models.IntegerField()
     character_armor_class = models.IntegerField()
     character_initiative = models.IntegerField(null=True)
+    def __str__(self):
+        return "characters"
+
 
 class dm_session(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    def __str__(self):
+        return "dm_sessions"
 
 class creatures(models.Model):
     dm_session_id = models.ForeignKey(dm_session, on_delete=models.CASCADE)
@@ -30,6 +37,8 @@ class creatures(models.Model):
     creature_level = models.IntegerField()
     creature_armor_class = models.IntegerField()
     creature_initiative = models.IntegerField(null=True)
+    def __str__(self):
+        return "creatures"
 
 # SIGNALS
 @receiver(post_save, sender=User)
