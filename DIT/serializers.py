@@ -18,9 +18,13 @@ class creatures_serializer(serializers.ModelSerializer):
         model = models.creatures
         fields = '__all__'
 
-class user_serializer(serializers.ModelSerializer):
+class user_serializer(serializers.Serializer):
     class Meta:
-        model = User
         fields = '__all__'
-    is_dm = serializers.BooleanField(source="extended_users.is_dm")
-    is_pc = serializers.BooleanField(source="extended_users.is_pc")
+    is_dm = serializers.BooleanField()
+    is_pc = serializers.BooleanField()
+    username = serializers.CharField()
+    password = serializers.CharField()
+    first_name = serializers.CharField()
+    last_name = serializers.CharField()
+    email = serializers.EmailField()
