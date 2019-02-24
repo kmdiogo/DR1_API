@@ -24,14 +24,27 @@ class extended_users(models.Model):
 
 class characters(models.Model):
     users_id = models.ForeignKey(User, on_delete=models.CASCADE)
+
     character_name = models.CharField(max_length=50)
-    character_health = models.IntegerField()
     character_level = models.IntegerField()
+    character_xp = models.IntegerField()
+
     character_armor_class = models.IntegerField()
     character_initiative = models.IntegerField(null=True)
+    character_speed = models.IntergerField()
+    character_maxHealth = models.IntegerField()
+    character_currentHealth = models.IntegerField()
+    character_temporaryHealth = models.IntegerField()
+
+    character_strength = models.IntegerField()
+    character_dexterity = models.IntergerField()
+    character_constitution = models.IntergerField()
+    character_intelligence = models.IntergerField()
+    character_wisdom = models.IntergerField()
+    character_charisma = models.IntergerField()
+
     def __str__(self):
         return "characters"
-
 
 class creatures(models.Model):
     dm_session_id = models.ForeignKey(dm_session, on_delete=models.CASCADE)
