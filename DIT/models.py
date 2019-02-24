@@ -6,11 +6,19 @@ from rest_framework.authtoken.models import Token
 
 # Create your models here
 
+class dm_session(models.Model):
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    def __str__(self):
+        return "dm_sessions"
+
+
 # extend users
 class extended_users(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_pc = models.BooleanField()
     is_dm = models.BooleanField()
+    dm_session_id = models.ForeignKey(dm_session, null=True, on_delete=models.CASCADE)
+
     def __str__(self):
         return "extended_users"
 
@@ -24,11 +32,6 @@ class characters(models.Model):
     def __str__(self):
         return "characters"
 
-
-class dm_session(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    def __str__(self):
-        return "dm_sessions"
 
 class creatures(models.Model):
     dm_session_id = models.ForeignKey(dm_session, on_delete=models.CASCADE)

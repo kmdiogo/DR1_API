@@ -22,9 +22,20 @@ class user_serializer(serializers.Serializer):
     class Meta:
         fields = '__all__'
     is_dm = serializers.BooleanField()
-    is_pc = serializers.BooleanField()
     username = serializers.CharField()
     password = serializers.CharField()
     first_name = serializers.CharField()
     last_name = serializers.CharField()
     email = serializers.EmailField()
+    dm_session_id = serializers.IntegerField (allow_null=True)
+
+class django_user_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = '__all__'
+
+class extended_user_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = '__all__'
+
